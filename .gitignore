@@ -1,12 +1,52 @@
-# generated demo data and local secrets should never be committed
+# Environment & Secrets
 .env
 .env.*
 !.env.example
 *.pem
 *.key
 *.p12
-opencv_demo_output/
-02io_data/
 
+# Python & Jupyter Caches
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Virtual Environments
+.venv/
+*/.venv/
+venv/
+env/
+04_venv/
+
+# IDE & Editor Configs
+.idea/
+.vscode/
+*/.vscode/
+superpowers/
+
+# Data & Datasets (Raw data, cached data, demo outputs)
+data/
+datasets/
+**/data/
+**/datasets/
+02io_data/
+opencv_demo_output/
+
+# Machine Learning Models & Weights
+*.pth
+*.pt
+*.onnx
+*.onnx.data
+*.bin
+*.ckpt
+*.h5
+
+# TensorBoard & Training Logs
+*tfevents*
+runs/
+**/tensor_board_test/
+**/transform_tensor_board/
+**/steel_summary/
