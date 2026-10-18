@@ -1,69 +1,114 @@
 # Python 学习项目
 
-这是一个按学习路线整理的 Python 实践项目，内容从 Python 基础逐步扩展到文件处理、标准库、虚拟环境、Pillow、NumPy 和 OpenCV 图像处理。
+这是一个按学习路线整理的 Python 实践项目，内容从 Python 基础语法逐步扩展到文件处理、标准库、虚拟环境、Pillow、NumPy 科学计算、OpenCV 图像处理以及 PyTorch 深度学习实战。
 
 ## 目录概览
 
 | 目录 | 内容 |
 | --- | --- |
-| `01Primary` | Python 基础语法、函数、高阶函数、装饰器、生成器、面向对象、枚举、异常和单元测试 |
-| `02io` | 字符串 IO、字节 IO、序列化与反序列化（Marshal、JSON） |
-| `03inner_module` | `datetime`、`namedtuple`、`Counter`、迭代器等 Python 标准库模块 |
-| `04_venv` | Python 虚拟环境相关实验 |
-| `05_pillow` | Pillow 图像处理练习 |
-| `06_numpy` | NumPy 数组基础、索引、变形、拼接、广播、运算、随机数和综合练习 |
-| `07_opencv` | OpenCV 图像读取、显示、保存、像素、ROI、通道、几何变换、图像运算、阈值、滤波和形态学处理 |
+| [`01_Primary`](01_Primary) | Python 基础语法、函数、高阶函数、装饰器、生成器、面向对象、枚举、异常和单元测试 |
+| [`02_io`](02_io) | 字符串 IO、字节 IO、序列化与反序列化（Marshal、JSON） |
+| [`03_inner_module`](03_inner_module) | `datetime`、`namedtuple`、`Counter`、迭代器等 Python 标准库常用模块 |
+| [`04_venv`](04_venv) | Python 虚拟环境相关实验 |
+| [`05_pillow`](05_pillow) | Pillow 基础图像处理练习 |
+| [`06_numpy`](06_numpy) | NumPy 数组基础、索引、变形、拼接、广播、矩阵运算、随机数和综合练习 |
+| [`07_opencv`](07_opencv) | OpenCV 图像读取、显示、保存、像素与 ROI、通道处理、几何变换、滤波形态学、模板匹配与特征拼接 |
+| [`08_pytorch`](08_pytorch) | PyTorch 张量基础、Dataset/DataLoader、CNN 网络搭建、TensorBoard 可视化、模型保存加载、ONNX 导出与分类训练流程 |
 
 ## 推荐学习顺序
 
 ```text
-Python 基础
+Python 基础 (01_Primary)
     ↓
-文件与标准库
+文件与标准库 (02_io / 03_inner_module)
     ↓
-虚拟环境与图像基础
+虚拟环境与图像基础 (04_venv / 05_pillow)
     ↓
-NumPy 数组
+NumPy 科学计算 (06_numpy)
     ↓
-OpenCV 图像处理
+OpenCV 图像处理 (07_opencv)
     ↓
-PyTorch / YOLO 等深度学习方向
+PyTorch 深度学习 (08_pytorch)
 ```
 
-建议先学习 `01Primary`，再阅读 `02io` 和 `03inner_module`；完成 NumPy 基础后进入 `06_numpy`，最后使用 `07_opencv` 将数组操作应用到真实图像。
+建议先在 `01_Primary` 巩固语法，再阅读 `02_io` 与 `03_inner_module`；完成 `06_numpy` 的数组运算后，进入 `07_opencv` 进行计算机视觉图像操作，最后通过 `08_pytorch` 迈向深度学习建模与训练。
+
+---
 
 ## 环境与运行
 
-项目使用 Python 3.14 虚拟环境。根目录环境位于：
+### 1. 虚拟环境配置
 
-```text
-.venv\Scripts\python.exe
-```
+针对不同阶段的依赖，建议配置或选用对应的虚拟环境：
 
-在 VS Code 中打开项目根目录后，可以直接运行 `.py` 文件或打开 `.ipynb` Notebook。Notebook 建议选择与具体目录对应的虚拟环境：
+- **通用 Python / NumPy**：项目根目录 `.venv` 或各子目录环境，Python 3.14
+- **OpenCV 练习**：`07_opencv/.venv`，内核选择 **OpenCV (Python 3.14.7)**
+- **PyTorch 深度学习**：推荐使用 Conda 独立的 PyTorch 环境（如 `venv_pytorch`），需要安装 `torch`、`torchvision`、`tensorboard` 等。
 
-- 通用 Python / NumPy：根目录 `.venv` 或对应子目录的 `.venv`
-- OpenCV：`07_opencv/.venv`，选择内核 **OpenCV (Python 3.14.7)**
+### 2. 运行方式
 
-启动 Jupyter：
+在 VS Code / PyCharm 中打开项目根目录：
+- 直接运行 `.py` 脚本；
+- 运行 `.ipynb` Notebook 时，右上角切换为对应模块匹配的 Python 内核；
+- 启动 Jupyter Notebook：
+  ```powershell
+  .venv\Scripts\jupyter.exe notebook
+  ```
 
-```powershell
-.venv\Scripts\jupyter.exe notebook
-```
+---
 
-## OpenCV 示例
+## 模块详细介绍
 
-OpenCV 示例位于 [`07_opencv/01_start`](07_opencv/01_start)。其中：
+### OpenCV 模块 ([`07_opencv`](07_opencv))
 
-- [`summary.md`](07_opencv/summary.md) 记录 01–16 个 Notebook 和 `02_excrcise` 练习的知识点。
-- `02_read_image.ipynb` 至 `16_histogram.ipynb` 按功能拆分，均可单独运行；原始综合示例 `01_start.ipynb` 保留。
-- `02_excrcise` 包含清晰度评价、模板匹配、SIFT 特征匹配和图像拼接练习。
-- 示例图片统一放在 [`07_opencv/img`](07_opencv/img)，包括 `img1.jpg`、`img2.jpg` 和 `templ.png`。
-- 详细运行说明见 [`07_opencv/01_start/README.md`](07_opencv/01_start/README.md)。
+- 基础入门位于 [`07_opencv/01_start`](07_opencv/01_start)，包含 02–16 号独立 Notebook，拆分讲解读写、像素、ROI、通道、缩放旋转、阈值与滤波等；
+- 进阶练习位于 [`07_opencv/02_excrcise`](07_opencv/02_excrcise)：
+  - `01_laplacian.py`：Laplacian 方差评估图像清晰度；
+  - `02_template_match.ipynb`：模板匹配与多角度旋转模板；
+  - `03_match_test.py`：带掩膜（Mask）的旋转匹配；
+  - `04_img_joint.py`：SIFT 特征提取与图像拼接；
+  - `05_rgb_to_gray.ipynb`：彩色图像转灰度图原理与实现对比；
+- 统一输入图片存放于 [`07_opencv/img`](07_opencv/img)；
+- 完整知识点总结请参阅 [`07_opencv/summary.md`](07_opencv/summary.md) 与 [`07_opencv/01_start/README.md`](07_opencv/01_start/README.md)。
 
-## 说明
+### PyTorch 深度学习模块 ([`08_pytorch`](08_pytorch))
 
-这是一个持续整理中的学习项目，Notebook 以实验和演示为主。运行 Notebook 时建议使用“运行全部”并从头执行，避免因前序变量尚未创建而出现 `NameError`。
+本模块系统梳理了从张量基础到神经网络搭建、训练、调优与工程化导出的全流程：
+
+1. **基础语法与张量 ([`00_start_base_grammar`](08_pytorch/00_start_base_grammar))**
+   - `01_start.py`：PyTorch 安装与版本/设备检验；
+   - `02_tensor.ipynb`：Tensor 创建、属性、切片、数学运算以及与 NumPy 数组的无缝互转。
+2. **核心组件构建 ([`01_base`](08_pytorch/01_base))**
+   - `01_base_function.ipynb`：常用内置张量函数；
+   - `02_datasets.ipynb` / `03_define_dataset.py`：官方数据集加载与自定义 Dataset 类的编写规范；
+   - `04_tensorboard.py`：利用 TensorBoard 记录标量（Loss/Acc）与可视化模型图；
+   - `05_transform.ipynb`：`torchvision.transforms` 图像变换、归一化与数据增强；
+   - `06_dataloader.ipynb`：`DataLoader` 批量批次切分、洗牌与数据迭代；
+   - `07_conv_demo.ipynb` / `08_define_CNN.py`：卷积操作原理与简单 CNN 网络构建；
+   - `09_max_pooling.py` / `10_non-linear_active.py` / `12_linear.ipynb`：池化层、激活函数（ReLU/Sigmoid）与全连接线性层；
+   - `11_cnn_trainng.ipynb`：端到端完整的卷积神经网络训练实战。
+3. **实战应用与导出 ([`02_attached`](08_pytorch/02_attached))**
+   - `01_datasets.ipynb` & `02_classification_train.ipynb`：工业缺陷分类任务实战，涵盖数据集处理、模型构建、验证评估；
+   - `03_export_model.ipynb`：将训练好的 PyTorch 深度学习模型转换为 ONNX 格式以便部署推理；
+   - `04_small_cnn.ipynb`：轻量化卷积网络探索。
+4. **模型管理与操作 ([`03_model_operations`](08_pytorch/03_model_operations))**
+   - `01_load_vgg_16.py`：经典预训练模型（如 VGG16）的下载、加载与分类头修改迁移学习；
+   - `02_save.py` / `03_load.py`：模型完整序列化保存与基于 `state_dict` 字典参数保存的两种推荐方式与加载恢复。
+5. **规范训练流程 ([`04_train_flow`](08_pytorch/04_train_flow))**
+   - `model.py`：解耦的网络架构定义（如 `TenClassNet`）；
+   - `01_base_flow.py`：工程化标准训练模板（设备自动分配、训练步迭代、反向传播优化、验证集评估）。
+
+---
+
+## 数据集与大文件管理规范
+
+为了保证 Git 仓库的轻量和秒级 Push 体验，并遵守 GitHub 单文件不超过 100 MB 的规范：
+
+- **数据集**：所有本地数据集目录（如 `data/`、`datasets/`、`08_pytorch/data/`）均已配置在 [`.gitignore`](.gitignore) 中。代码中使用官方数据集（如 MNIST）时，脚本已开启 `download=True`，首次运行会自动拉取至本地；
+- **模型权重与导出**：大模型权重（`*.pth`、`*.pt`）与导出文件（`*.onnx`、`*.onnx.data`）不进入版本管理；
+- **训练日志**：TensorBoard 生成的日志文件（`*tfevents*`）以及 `runs/`、`steel_summary/` 等目录均已被忽略。
+
+---
 
 ## 隐私与提交规范
 
