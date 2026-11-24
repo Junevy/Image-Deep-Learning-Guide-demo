@@ -1,0 +1,27 @@
+{
+  "version": "0.4.43",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "junevy",
+      "text": "",
+      "points": [
+        [
+          488.44444444444446,
+          190.55555555555554
+        ],
+        [
+          861.7777777777778,
+          622.5555555555558
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "..\\frame\\23.jpg",
+  "imageData": null,
+  "imageHeight": 720,
+  "imageWidth": 1280
+}

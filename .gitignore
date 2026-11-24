@@ -5,6 +5,7 @@
 *.pem
 *.key
 *.p12
+*.workbuddy
 
 # Python & Jupyter Caches
 __pycache__/
@@ -34,6 +35,8 @@ datasets/
 **/datasets/
 02io_data/
 opencv_demo_output/
+# 第三方源码（ultralytics 官方仓库拷贝，含 pyc/权重等大量冗余）
+09_yolo/ultralytics-main/
 
 # Machine Learning Models & Weights
 *.pth
@@ -50,3 +53,17 @@ runs/
 **/tensor_board_test/
 **/transform_tensor_board/
 **/steel_summary/
+
+# YOLO 数据集素材（体积大，不入库；只保留 labels 下的标注 txt/json）
+09_yolo/02_train/bvn/images/
+09_yolo/02_train/video/
+09_yolo/02_train/_verify_out/
+
+# 视频素材（体积大，不入库）
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# 数据集扫描缓存（Ultralytics 生成的二进制缓存，可由标注随时重建）
+*.cache
